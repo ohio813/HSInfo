@@ -178,19 +178,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\lib\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)..\..\contrib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug(XP)|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\lib\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)..\..\contrib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug(DLL)|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\lib\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)..\..\contrib;$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -214,19 +214,19 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\lib\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)..\..\contrib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release(XP)|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\lib\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)..\..\contrib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release(DLL)|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\lib\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)..\..\contrib;$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -267,6 +267,9 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)\$(Configuration)\$(TargetName).lib" "$(SolutionDir)lib\$(Configuration)\$(TargetName).lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug(XP)|Win32'">
     <ClCompile>
@@ -287,6 +290,9 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)\$(Configuration)\$(TargetName).lib" "$(SolutionDir)lib\$(Configuration)\$(TargetName).lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug(DLL)|Win32'">
     <ClCompile>
@@ -310,6 +316,9 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)\$(Configuration)\$(TargetName).lib" "$(SolutionDir)lib\$(Configuration)\$(TargetName).lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -392,6 +401,9 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)\$(Configuration)\$(TargetName).lib" "$(SolutionDir)lib\$(Configuration)\$(TargetName).lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release(XP)|Win32'">
     <ClCompile>
@@ -419,6 +431,9 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)\$(Configuration)\$(TargetName).lib" "$(SolutionDir)lib\$(Configuration)\$(TargetName).lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release(DLL)|Win32'">
     <ClCompile>
@@ -450,6 +465,9 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)\$(Configuration)\$(TargetName).lib" "$(SolutionDir)lib\$(Configuration)\$(TargetName).lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

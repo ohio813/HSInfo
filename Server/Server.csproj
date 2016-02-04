@@ -12,76 +12,133 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\</OutputPath>
+    <OutputPath>Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\</OutputPath>
+    <OutputPath>Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>C:\Program Files (x86)\Hearthstone\Hearthstone_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Hearthstone\Hearthstone_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Hearthstone\Hearthstone_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Hearthstone\Hearthstone_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngineExt, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Client\bin\Debug\UnityEngineExt.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Hearthstone\Hearthstone_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\bot\BotActionHandler.cs" />
+    <Compile Include="src\bot\BotTask.cs" />
+    <Compile Include="src\bot\BotTaskHandler.cs" />
+    <Compile Include="src\main\BotInfoDisplay.cs" />
+    <Compile Include="src\main\HSMPClientHandler.cs" />
+    <Compile Include="src\message\ISerializable.cs" />
+    <Compile Include="src\message\types\account\MsgAccountInfoRequest.cs" />
+    <Compile Include="src\message\types\account\MsgDeckList.cs" />
+    <Compile Include="src\message\types\task\MsgTaskGetState.cs" />
+    <Compile Include="src\message\types\task\MsgTaskSet.cs" />
+    <Compile Include="src\message\types\task\MsgTaskFinished.cs" />
+    <Compile Include="src\message\types\task\TaskParamPlayTournament.cs" />
+    <Compile Include="src\netsniffer\account\BoosterNetSniffer.cs" />
+    <Compile Include="src\netsniffer\account\DustNetSnffer.cs" />
+    <Compile Include="src\netsniffer\account\GoldNetSniffer.cs" />
+    <Compile Include="src\netsniffer\account\RankNetSniffer.cs" />
+    <Compile Include="src\netsniffer\account\RewardNetSniffer.cs" />
+    <Compile Include="src\netsniffer\game\AllOptionsNetSniffer.cs" />
+    <Compile Include="src\netsniffer\game\NetSnifferInstaller.cs" />
+    <Compile Include="src\response\account\ResponseInstaller.cs" />
+    <Compile Include="src\response\account\RequestAccountInfoHandler.cs" />
+    <Compile Include="src\response\game\ResponseInstaller.cs" />
+    <Compile Include="src\response\game\ChooseOption.cs" />
     <Compile Include="src\ipcm\ClientMap.cs" />
-    <Compile Include="src\messages\stream\ClientMessageStream.cs" />
-    <Compile Include="src\messages\stream\Listener.cs" />
-    <Compile Include="src\ipcm\Map.cs" />
-    <Compile Include="src\messages\Message.cs" />
-    <Compile Include="src\ipcm\ServerMap.cs" />
-    <Compile Include="src\messages\stream\ServerStream.cs" />
-    <Compile Include="src\messages\stream\Stream.cs" />
+    <Compile Include="src\main\HSMPClient.cs" />
     <Compile Include="src\main\Hook.cs" />
+    <Compile Include="src\message\stream\ClientMessageStream.cs" />
+    <Compile Include="src\message\stream\MessageListener.cs" />
+    <Compile Include="src\ipcm\Map.cs" />
+    <Compile Include="src\message\Message.cs" />
+    <Compile Include="src\ipcm\ServerMap.cs" />
+    <Compile Include="src\message\stream\ServerMessageStream.cs" />
+    <Compile Include="src\message\stream\MessageStream.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\main\Loader.cs" />
-    <Compile Include="src\main\StandardGameEntityExt.cs" />
-    <Compile Include="src\messages\types\CurrentScene.cs" />
-    <Compile Include="src\messages\types\DebugMessage.cs" />
-    <Compile Include="src\messages\types\GameState.cs" />
-    <Compile Include="src\messages\stream\MessageHandler.cs" />
-    <Compile Include="src\messages\MessageIDs.cs" />
-    <Compile Include="src\messages\types\SetMouseTo.cs" />
-    <Compile Include="src\messages\types\SwitchInput.cs" />
+    <Compile Include="src\message\types\account\MsgAccountInfoResponse.cs" />
+    <Compile Include="src\message\types\account\MsgCurrencyBalance.cs" />
+    <Compile Include="src\message\types\account\MsgOpenedPack.cs" />
+    <Compile Include="src\message\types\game\MsgChooseOption.cs" />
+    <Compile Include="src\message\types\meta\MsgStatus.cs" />
+    <Compile Include="src\message\types\meta\MsgDebug.cs" />
+    <Compile Include="src\message\stream\MessageHandler.cs" />
+    <Compile Include="src\message\types\game\MsgOptions.cs" />
+    <Compile Include="src\message\types\MessageIDs.cs" />
+    <Compile Include="src\message\types\game\MsgPowerHistory.cs" />
+    <Compile Include="src\netsniffer\account\NetSnifferInstaller.cs" />
+    <Compile Include="src\netsniffer\game\AllNetSniffer.cs" />
+    <Compile Include="src\response\meta\DebugHandler.cs" />
+    <Compile Include="src\response\meta\ResponseInstaller.cs" />
+    <Compile Include="src\sim\base\SimCard.cs" />
+    <Compile Include="src\sim\base\SimDeck.cs" />
+    <Compile Include="src\sim\base\SimEntity.cs" />
+    <Compile Include="src\sim\base\SimGame.cs" />
+    <Compile Include="src\sim\base\SimGameState.cs" />
+    <Compile Include="src\sim\base\SimPlayer.cs" />
+    <Compile Include="src\sim\base\SimZone.cs" />
+    <Compile Include="src\sim\proc\powerhistory\SimEntitySpec.cs" />
+    <Compile Include="src\sim\proc\powerhistory\SimPlayerSpec.cs" />
+    <Compile Include="src\sim\proc\powerhistory\SimPowerHistory.cs" />
+    <Compile Include="src\sim\proc\powerhistory\SimPowerType.cs" />
+    <Compile Include="src\sim\proc\powerhistory\types\SimActionEnd.cs" />
+    <Compile Include="src\sim\proc\powerhistory\types\SimActionStart.cs" />
+    <Compile Include="src\sim\proc\powerhistory\types\SimCreateGame.cs" />
+    <Compile Include="src\sim\proc\powerhistory\types\SimFullEntity.cs" />
+    <Compile Include="src\sim\proc\powerhistory\types\SimHideEntity.cs" />
+    <Compile Include="src\sim\proc\powerhistory\types\SimMetaData.cs" />
+    <Compile Include="src\sim\proc\powerhistory\types\SimShowEntity.cs" />
+    <Compile Include="src\sim\proc\powerhistory\types\SimTagChange.cs" />
+    <Compile Include="src\sim\proc\SimBlockType.cs" />
+    <Compile Include="src\sim\proc\SimEvaluator.cs" />
+    <Compile Include="src\sim\proc\SimPhase.cs" />
+    <Compile Include="src\sim\proc\SimProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\netsniffer\draft\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetPath)" "$(SolutionDir)lib\$(ConfigurationName)\$(TargetName).dll"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

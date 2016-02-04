@@ -4,8 +4,11 @@ using System.Runtime.InteropServices;
 
 namespace IPCM {
     public class ServerMap : Map {
-        /* --- Constructors --- */
+        /* --- Constructors & Destructor --- */
         private ServerMap(string name) : base(name) { }
+        ~ServerMap() {
+            Close();
+        }
         /* --- Instance Methods (Interface) --- */
         public bool Write(byte[] buffer, int length) {
             if (m_isOpen == false) {
@@ -16,6 +19,12 @@ namespace IPCM {
         }
         public int Read(byte[] buffer) {
             return IPCMReadMessageServer(m_mapData.m_ptr, buffer, buffer.Length);
+        }
+        public void Close() {
+            if (m_isOpen) {
+                IPCMCloseServer(ref m_mapData);
+                m_isOpen = false;
+            }
         }
         /* --- Static Methods (Interface) --- */
         public static ServerMap Create(string name, int size) {
@@ -28,9 +37,11 @@ namespace IPCM {
             return map;
         }
         /* --- DLL-Defs --- */
-        [DllImport("IPCRoot.dll", CallingConvention = CallingConvention.Cdecl)]
-        protected static extern int IPCMWriteMessageServer(IntPtr vIPC, byte[] buffer, int length);
-        [DllImport("IPCRoot.dll", CallingConvention = CallingConvention.Cdecl)]
-        protected static extern int IPCMReadMessageServer(IntPtr vIPC, byte[] buffer, int length);
+        [DllImport("IPCMP.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern int IPCMWriteMessageServer(IntPtr vIPC, byte[] buffer, int length);
+        [DllImport("IPCMP.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern int IPCMReadMessageServer(IntPtr vIPC, byte[] buffer, int length);
+        [DllImport("IPCMP.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern bool IPCMCloseServer(ref MapData map);
     }
 }
